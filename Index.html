@@ -76,8 +76,13 @@
    function callAPI() {
 
     var gtmArray = getGTMKeys();
+    console.log(gtmArray[0]);
+    console.log(gtmArray[1]);
+    
+    var apiUrl = "https://httpbin.org/get?key=" + gtmArray[0] + "&value=" + gtmArray[1];
+    console.log("url:" + apiUrl);
 
-    fetch('https://httpbin.org/get?key=' & toString(gtmArray[0]) & '&value=' & toString(gtmArray[1]))
+    fetch(apiUrl)
         .then(function (result) {
             console.log("success");
             console.log(result);
